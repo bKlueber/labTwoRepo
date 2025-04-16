@@ -44,7 +44,12 @@ class Task {
 
 class Planner {
     // Create a data structure that will store tasks as a task list
-    /*your code here */ taskList = /*your code here*/ ;
+    ArrayList <Task> taskList = new ArrayList<>();
+
+    Day weekday;
+    int monthday;
+    String taskInfo;
+    Color importance;
 
 
     // this method adds a new task to a task list
@@ -89,7 +94,8 @@ class Lab2{
     @Param: Planner obj
     */
     static void addNewTask(Planner a){
-        // add your code here
+       System.out.println("Welcome to Your Digital Planner\nPlease select from the following menu options:");
+       System.out.println("1.")
     }
 
 
