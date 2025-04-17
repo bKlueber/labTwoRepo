@@ -28,7 +28,7 @@ class Task {
         id = ++itemsCreated;
     }
 
-    Task(Task originalTask) {
+    Task(Task originalTask) { // this is my copy constructor and i will not add any other code to this area
         this.date = originalTask.date;
         this.itemInfo = originalTask.itemInfo;
         this.isComplete = originalTask.isComplete;
@@ -58,8 +58,10 @@ class Planner {
 
     // this method adds a new task to a task list
     // @params: Day weekday, int monthDay, String taskInfo, Color importance
-    void addNewTask(Day weekday, int monthDay, String taskInfo, Color importance){
-        // add your code here
+    void addNewTask(Day weekDay, int monthDay, String taskInfo, Color importance){
+        String date = weekDay + " " + monthDay; // formats the date
+        Task newTask = new Task(date, taskInfo, importance);
+        taskList.add(newTask);
     }
 
     // this method removes an item by the Task ID
@@ -67,8 +69,13 @@ class Planner {
     // do NOT change the value of Task.itemsCreated 
     // @param: int id
     void removeTaskById(int id){
-        // add your code here
+        for( Task task: taskList) { //goes through the task lists
+            if (task.id == id) { //checks to see if current itteration matches user input id
+            taskList.remove(task); //says if found remove that task
+            break; //stops the loop
+        }
     }
+
 
     // this method calls the task toString method
     // for each task that exists in the task list
@@ -81,7 +88,13 @@ class Planner {
     // this method will change the completion status of a task item
     // by the Task ID, NOT by the task list index
     void markCompletion(int id){
-        // add your code here
+        for (Task task : taskList) { //loops through each task currently in taskList
+            if(task.id == id) { //checks if the current task matches user input id
+                task.changeIsComplete(); //if user input is found it calls the changeIsComplete method
+                break;
+
+            }
+        }
     }
 
 }
@@ -100,22 +113,25 @@ class Lab2{
     @Param: Planner obj
     */
     static void addNewTask(Planner a){
-       System.out.println("Welcome to Your Digital Planner\nPlease select from the following menu options:");
-       System.out.println("");
-       System.out.println("1. Display all planner tasks");
-       System.out.println("2. Add task to planner");
-       System.out.println("3. Remove task from planner");
-       System.out.println("4. Mark Planner task as complete");
-       System.out.println("");
-       System.out.println("Please make your selection:\n>>>");
+      
        
 
     }
 
 
     public static void main(String args[]){
-        Scanner in = new Scanner(System.in);
+        Scanner userInput = new Scanner(System.in);
         Planner myPlanner = new Planner();
+
+        System.out.println("Welcome to Your Digital Planner\nPlease select from the following menu options:");
+        System.out.println("");
+        System.out.println("1. Display all planner tasks");
+        System.out.println("2. Add task to planner");
+        System.out.println("3. Remove task from planner");
+        System.out.println("4. Mark Planner task as complete");
+        System.out.println("");
+        System.out.println("Please make your selection:\n>>>");
+        int userChoice = userInput.nextInt();
 
         addNewTask(myPlanner);
         
