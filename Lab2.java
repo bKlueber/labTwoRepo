@@ -46,10 +46,7 @@ class Planner {
     // Create a data structure that will store tasks as a task list
     ArrayList <Task> taskList = new ArrayList<>();
 
-    Day weekday;
-    int monthday;
-    String taskInfo;
-    Color importance;
+    Task myPlanner;
 
 
     // this method adds a new task to a task list
@@ -69,7 +66,9 @@ class Planner {
     // this method calls the task toString method
     // for each task that exists in the task list
     void showAllTasks(){
-        // add your code here
+        for (int i = 0; i < taskList.size(); i++) {
+            System.out.println(taskList.get(i)); //using getter and looping through the arrayList based off number of indices
+        }
     }
 
     // this method will change the completion status of a task item
@@ -95,7 +94,15 @@ class Lab2{
     */
     static void addNewTask(Planner a){
        System.out.println("Welcome to Your Digital Planner\nPlease select from the following menu options:");
-       System.out.println("1.")
+       System.out.println("");
+       System.out.println("1. Display all planner tasks");
+       System.out.println("2. Add task to planner");
+       System.out.println("3. Remove task from planner");
+       System.out.println("4. Mark Planner task as complete");
+       System.out.println("");
+       System.out.println("Please make your selection:\n>>>");
+       
+
     }
 
 
