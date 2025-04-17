@@ -28,7 +28,14 @@ class Task {
         id = ++itemsCreated;
     }
 
-    // add a copy constructor 
+    Task(Task originalTask) {
+        this.date = originalTask.date;
+        this.itemInfo = originalTask.itemInfo;
+        this.isComplete = originalTask.isComplete;
+        this.importance = originalTask.importance; 
+        this.id = ++itemsCreated; //this just says take the orignal id, then add one. 
+    }
+
     void changeIsComplete(){
         isComplete = !isComplete;
     }
